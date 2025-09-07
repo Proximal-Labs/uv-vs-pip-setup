@@ -1,0 +1,19 @@
+.env*
+runs/
+uv1/
+
+*.log
+
+qwen*/
+deepseek*/
+anthropic*/
+openai*/
+moonshotai*/
+*.md
+
+overall_results_*/
+test*
+
+# Allow aggregated results back in
+!eval_results/
+!eval_results/**

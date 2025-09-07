@@ -1,0 +1,7 @@
+{
+  "repo": "./repo",
+  "tool_hint": "uv",
+  "description": "This repository does not have any dependencies installed. Please use `uv` to install the required dependencies to be able to run the program successfully, and include a pyproject.toml file. Do NOT install into a global/python outside .venv. The grader runs in a separate container and will only use .venv/bin/python. DO NOT MAKE ANY CODE CHANGES TO THE ORIGINAL FILES!",
+  "grade": "python grade.py",
+  "deps": ["pandas", "numpy", "streamlit", "plotly", "seaborn", "matplotlib"]
+}

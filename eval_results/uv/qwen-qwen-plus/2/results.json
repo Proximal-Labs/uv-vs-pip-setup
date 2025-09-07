@@ -1,0 +1,725 @@
+{
+  "duration": 18.62,
+  "score": 3,
+  "total": 13,
+  "passed_tasks": [
+    "olympic_data_analysis",
+    "spell_checker",
+    "sudoku"
+  ],
+  "failed_tasks": [
+    "audiobook",
+    "convert_xlsx_to_csv",
+    "earth",
+    "fastapi_crud",
+    "get_link",
+    "image_resizing",
+    "logistic_regression",
+    "make_art",
+    "markdown_to_html",
+    "todo_app"
+  ],
+  "results": [
+    {
+      "task": "audiobook",
+      "passed": false,
+      "agent": {
+        "rc": 0,
+        "dur": 72.1
+      },
+      "command_checks": {
+        "ok": true,
+        "score": 4,
+        "max": 4,
+        "hits": {
+          "venv_created": true,
+          "installed_in_venv": true,
+          "no_global_pip": true,
+          "used_tool_commands": true,
+          "used_uv_commands": true
+        },
+        "violations": [],
+        "cmds": [
+          "pwd && ls -la",
+          "ls -la | grep pyproject.toml",
+          "uv venv",
+          "source .venv/bin/activate",
+          "uv install --editable .",
+          "uv venv && source .venv/bin/activate && uv install --editable .",
+          "uv venv && source .venv/bin/activate && uv pip install --editable .",
+          "UV_VENV_CLEAR=1 uv venv && source .venv/bin/activate && uv pip install --editable .",
+          "C-c",
+          "UV_VENV_CLEAR=1 uv venv && source .venv/bin/activate && uv pip install --editable .",
+          "source .venv/bin/activate && pip list",
+          "source .venv/bin/activate && pip show edge-tts PyPDF2 tqdm click",
+          "source .venv/bin/activate && pip list | grep -i edge-tts",
+          "source .venv/bin/activate && find .venv/lib/python3.12/site-packages -name \"*edge*\" -type d"
+        ],
+        "manifest": {
+          "ok": false,
+          "required": [
+            "gtts",
+            "PyPDF2"
+          ],
+          "present": [
+            "PyPDF2"
+          ],
+          "missing": [
+            "gtts"
+          ],
+          "used_pyproject": true
+        }
+      },
+      "manifest_ok": false,
+      "env_checks": {
+        "required": 2,
+        "passed": 1,
+        "used_venv": true
+      },
+      "grade_rc": 1,
+      "task_duration": 1.3
+    },
+    {
+      "task": "convert_xlsx_to_csv",
+      "passed": false,
+      "agent": {
+        "rc": 0,
+        "dur": 21.71
+      },
+      "command_checks": {
+        "ok": false,
+        "score": 1,
+        "max": 4,
+        "hits": {
+          "venv_created": false,
+          "installed_in_venv": false,
+          "no_global_pip": true,
+          "used_tool_commands": false,
+          "used_uv_commands": false
+        },
+        "violations": [
+          "No venv creation command (uv venv / python -m venv .venv)",
+          "No evidence of installing inside the venv"
+        ],
+        "cmds": [],
+        "manifest": {
+          "ok": false,
+          "required": [
+            "pandas"
+          ],
+          "present": [],
+          "missing": [
+            "pandas"
+          ],
+          "used_pyproject": false
+        }
+      },
+      "manifest_ok": false,
+      "env_checks": {
+        "required": 1,
+        "passed": 0,
+        "used_venv": false
+      },
+      "grade_rc": 1,
+      "task_duration": 0.46
+    },
+    {
+      "task": "earth",
+      "passed": false,
+      "agent": {
+        "rc": 0,
+        "dur": 119.99
+      },
+      "command_checks": {
+        "ok": false,
+        "score": 4,
+        "max": 4,
+        "hits": {
+          "venv_created": true,
+          "installed_in_venv": true,
+          "no_global_pip": true,
+          "used_tool_commands": true,
+          "used_uv_commands": true
+        },
+        "violations": [
+          "Installed deps before venv creation (order)"
+        ],
+        "cmds": [
+          "pwd && ls -la",
+          "find /workspace -type f -name \"requirements*.txt\" -o -name \"setup.py\" -o -name \"Pipfile\"",
+          "find /workspace -type f -name \"*.py\" | xargs grep -l \"import\"",
+          "ls -R /workspace/earth/",
+          "grep -r \"import\" /workspace/earth/ | grep -v \"from\" | grep -v \"__future__\" | grep -v \"import attr\"",
+          "uv add attr --python /workspace/.venv/bin/python",
+          "uv sync --python /workspace/.venv/bin/python",
+          "rm /workspace/pyproject.toml",
+          "uv sync --python /workspace/.venv/bin/python",
+          "python -m venv .venv",
+          "source .venv/bin/activate",
+          "uv sync --python .venv/bin/python",
+          "python -m venv .venv && source .venv/bin/activate && uv sync --python .venv/bin/python"
+        ],
+        "manifest": {
+          "ok": true,
+          "required": [
+            "attrs"
+          ],
+          "present": [
+            "attrs"
+          ],
+          "missing": [],
+          "used_pyproject": true
+        }
+      },
+      "manifest_ok": true,
+      "env_checks": {
+        "required": 1,
+        "passed": 1,
+        "used_venv": true
+      },
+      "grade_rc": 1,
+      "task_duration": 2.1
+    },
+    {
+      "task": "fastapi_crud",
+      "passed": false,
+      "agent": {
+        "rc": 0,
+        "dur": 55.96
+      },
+      "command_checks": {
+        "ok": true,
+        "score": 4,
+        "max": 4,
+        "hits": {
+          "venv_created": true,
+          "installed_in_venv": true,
+          "no_global_pip": true,
+          "used_tool_commands": true,
+          "used_uv_commands": true
+        },
+        "violations": [],
+        "cmds": [
+          "pwd && ls -la",
+          "uv sync",
+          "uv sync --no-dev",
+          "pip install -r requirements.txt --target .venv/lib/python3.12/site-packages",
+          "mkdir -p .venv/bin && cp /openhands/micromamba/envs/openhands/bin/python3 .venv/bin/python",
+          "source .venv/bin/activate && python3 main.py"
+        ],
+        "manifest": {
+          "ok": true,
+          "required": [
+            "fastapi",
+            "pydantic",
+            "uvicorn",
+            "sqlalchemy"
+          ],
+          "present": [
+            "fastapi",
+            "pydantic",
+            "uvicorn",
+            "sqlalchemy"
+          ],
+          "missing": [],
+          "used_pyproject": true
+        }
+      },
+      "manifest_ok": true,
+      "env_checks": {
+        "required": 4,
+        "passed": 4,
+        "used_venv": true
+      },
+      "grade_rc": 1,
+      "task_duration": 1.07
+    },
+    {
+      "task": "get_link",
+      "passed": false,
+      "agent": {
+        "rc": 0,
+        "dur": 80.0
+      },
+      "command_checks": {
+        "ok": false,
+        "score": 4,
+        "max": 4,
+        "hits": {
+          "venv_created": true,
+          "installed_in_venv": true,
+          "no_global_pip": true,
+          "used_tool_commands": true,
+          "used_uv_commands": true
+        },
+        "violations": [
+          "Installed deps before venv creation (order)"
+        ],
+        "cmds": [
+          "pwd && ls -la",
+          "pip install uv",
+          "uv venv .venv && source .venv/bin/activate && uv pip install -r requirements.txt",
+          "find /workspace -type f -name \"requirements*.txt\" -o -name \"pyproject.toml\"",
+          "uv venv .venv && source .venv/bin/activate && uv pip install -r requirements.txt",
+          "uv venv .venv --clear && source .venv/bin/activate && uv pip install -r requirements.txt",
+          "uv venv .venv --clear",
+          "C-c",
+          "uv venv .venv --clear && source .venv/bin/activate && uv pip install flask requests"
+        ],
+        "manifest": {
+          "ok": false,
+          "required": [
+            "requests",
+            "beautifulsoup4"
+          ],
+          "present": [],
+          "missing": [
+            "requests",
+            "beautifulsoup4"
+          ],
+          "used_pyproject": true
+        }
+      },
+      "manifest_ok": false,
+      "env_checks": {
+        "required": 2,
+        "passed": 1,
+        "used_venv": true
+      },
+      "grade_rc": 1,
+      "task_duration": 1.45
+    },
+    {
+      "task": "image_resizing",
+      "passed": false,
+      "agent": {
+        "rc": 0,
+        "dur": 50.02
+      },
+      "command_checks": {
+        "ok": true,
+        "score": 4,
+        "max": 4,
+        "hits": {
+          "venv_created": true,
+          "installed_in_venv": true,
+          "no_global_pip": true,
+          "used_tool_commands": true,
+          "used_uv_commands": true
+        },
+        "violations": [],
+        "cmds": [
+          "pwd && ls -la",
+          "find /workspace -type f -name \"*.py\" | grep -v \".pyc\" | grep -v \"__pycache__\"",
+          "uv sync --requirements requirements.txt",
+          "python -m venv .venv",
+          "source .venv/bin/activate",
+          "pip install -r requirements.txt",
+          "python -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt"
+        ],
+        "manifest": {
+          "ok": false,
+          "required": [
+            "Pillow"
+          ],
+          "present": [],
+          "missing": [
+            "Pillow"
+          ],
+          "used_pyproject": true
+        }
+      },
+      "manifest_ok": false,
+      "env_checks": {
+        "required": 1,
+        "passed": 1,
+        "used_venv": true
+      },
+      "grade_rc": 0,
+      "task_duration": 0.93
+    },
+    {
+      "task": "logistic_regression",
+      "passed": false,
+      "agent": {
+        "rc": 0,
+        "dur": 132.19
+      },
+      "command_checks": {
+        "ok": true,
+        "score": 4,
+        "max": 4,
+        "hits": {
+          "venv_created": true,
+          "installed_in_venv": true,
+          "no_global_pip": true,
+          "used_tool_commands": true,
+          "used_uv_commands": true
+        },
+        "violations": [],
+        "cmds": [
+          "pwd && ls -la",
+          "find /workspace -type f -name \"*.py\" | grep -v \".pyc\" | sort",
+          "uv venv .venv && source .venv/bin/activate && uv install -e . --no-dev",
+          "source .venv/bin/activate && uv pip install -e .",
+          "mv /workspace/pyproject.toml.new /workspace/pyproject.toml",
+          "source .venv/bin/activate && uv pip install -e .",
+          "source .venv/bin/activate && pip install uv.build && uv pip install -e .",
+          "source .venv/bin/activate && uv pip install -e .",
+          "source .venv/bin/activate && uv pip install pandas matplotlib seaborn scikit-learn",
+          "source .venv/bin/activate && python grade.py"
+        ],
+        "manifest": {
+          "ok": false,
+          "required": [
+            "pandas",
+            "numpy",
+            "matplotlib",
+            "seaborn",
+            "scikit-learn"
+          ],
+          "present": [
+            "pandas",
+            "matplotlib",
+            "seaborn",
+            "scikit-learn"
+          ],
+          "missing": [
+            "numpy"
+          ],
+          "used_pyproject": true
+        }
+      },
+      "manifest_ok": false,
+      "env_checks": {
+        "required": 5,
+        "passed": 4,
+        "used_venv": true
+      },
+      "grade_rc": 0,
+      "task_duration": 2.44
+    },
+    {
+      "task": "make_art",
+      "passed": false,
+      "agent": {
+        "rc": 0,
+        "dur": 63.08
+      },
+      "command_checks": {
+        "ok": false,
+        "score": 4,
+        "max": 4,
+        "hits": {
+          "venv_created": true,
+          "installed_in_venv": true,
+          "no_global_pip": true,
+          "used_tool_commands": true,
+          "used_uv_commands": true
+        },
+        "violations": [
+          "Installed deps before venv creation (order)"
+        ],
+        "cmds": [
+          "pwd && ls -la",
+          "find /workspace -type f -name \"*requirements*.txt\" -o -name \"package*.json\"",
+          "uv pip install -r requirements.txt --python .venv/bin/python",
+          "uv venv .venv --python 3.12",
+          "uv pip install -r requirements.txt --python .venv/bin/python",
+          ".venv/bin/python3 make_art.py"
+        ],
+        "manifest": {
+          "ok": false,
+          "required": [
+            "numpy",
+            "opencv-python"
+          ],
+          "present": [],
+          "missing": [
+            "numpy",
+            "opencv-python"
+          ],
+          "used_pyproject": true
+        }
+      },
+      "manifest_ok": false,
+      "env_checks": {
+        "required": 2,
+        "passed": 2,
+        "used_venv": true
+      },
+      "grade_rc": 0,
+      "task_duration": 1.17
+    },
+    {
+      "task": "markdown_to_html",
+      "passed": false,
+      "agent": {
+        "rc": 0,
+        "dur": 138.21
+      },
+      "command_checks": {
+        "ok": true,
+        "score": 4,
+        "max": 4,
+        "hits": {
+          "venv_created": true,
+          "installed_in_venv": true,
+          "no_global_pip": true,
+          "used_tool_commands": true,
+          "used_uv_commands": true
+        },
+        "violations": [],
+        "cmds": [
+          "pwd && ls -la",
+          "uv sync --python .venv/bin/python",
+          "mkdir -p .venv",
+          "uv sync --python .venv/bin/python",
+          "mkdir -p .venv && uv sync --python .venv/bin/python",
+          "python -m venv .venv && source .venv/bin/activate && pip install uv && uv sync",
+          "pip install uv",
+          "python -m venv .venv && source .venv/bin/activate && pip install uv && uv sync",
+          "python -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt || echo \"No requirements.txt file found\"",
+          "ls -la && cat config.toml || echo \"No config.toml file found\"",
+          "source .venv/bin/activate && pip install markdown",
+          "source .venv/bin/activate && python markdown_to_html.py input.md output.html"
+        ],
+        "manifest": {
+          "ok": false,
+          "required": [
+            "markdown"
+          ],
+          "present": [],
+          "missing": [
+            "markdown"
+          ],
+          "used_pyproject": true
+        }
+      },
+      "manifest_ok": false,
+      "env_checks": {
+        "required": 1,
+        "passed": 1,
+        "used_venv": true
+      },
+      "grade_rc": 0,
+      "task_duration": 2.41
+    },
+    {
+      "task": "olympic_data_analysis",
+      "passed": true,
+      "agent": {
+        "rc": 0,
+        "dur": 128.13
+      },
+      "command_checks": {
+        "ok": true,
+        "score": 4,
+        "max": 4,
+        "hits": {
+          "venv_created": true,
+          "installed_in_venv": true,
+          "no_global_pip": true,
+          "used_tool_commands": true,
+          "used_uv_commands": true
+        },
+        "violations": [],
+        "cmds": [
+          "ls",
+          "head app.py helper.py preprocesser.py",
+          "uv venv",
+          "source .venv/bin/activate",
+          "uv install .",
+          "uv venv && source .venv/bin/activate && uv install .",
+          "uv venv && source .venv/bin/activate && uv pip install -r requirements.txt",
+          "uv venv --clear && source .venv/bin/activate && uv pip install -r requirements.txt",
+          "pip install virtualenv",
+          "python -m venv .venv",
+          "source .venv/bin/activate",
+          "pip install plotly streamlit pandas matplotlib seaborn numpy",
+          "pip install virtualenv",
+          "C-c",
+          "python -m venv .venv",
+          "source .venv/bin/activate",
+          "pip install plotly streamlit pandas matplotlib seaborn numpy",
+          "python -m venv .venv && source .venv/bin/activate && pip install plotly streamlit pandas matplotlib seaborn numpy",
+          "source .venv/bin/activate && pip list"
+        ],
+        "manifest": {
+          "ok": true,
+          "required": [
+            "pandas",
+            "numpy",
+            "streamlit",
+            "plotly",
+            "seaborn",
+            "matplotlib"
+          ],
+          "present": [
+            "pandas",
+            "numpy",
+            "streamlit",
+            "plotly",
+            "seaborn",
+            "matplotlib"
+          ],
+          "missing": [],
+          "used_pyproject": true
+        }
+      },
+      "manifest_ok": true,
+      "env_checks": {
+        "required": 6,
+        "passed": 6,
+        "used_venv": true
+      },
+      "grade_rc": 0,
+      "task_duration": 2.37
+    },
+    {
+      "task": "spell_checker",
+      "passed": true,
+      "agent": {
+        "rc": 0,
+        "dur": 69.25
+      },
+      "command_checks": {
+        "ok": true,
+        "score": 4,
+        "max": 4,
+        "hits": {
+          "venv_created": true,
+          "installed_in_venv": true,
+          "no_global_pip": true,
+          "used_tool_commands": true,
+          "used_uv_commands": true
+        },
+        "violations": [],
+        "cmds": [
+          "pwd && ls -la",
+          "uv venv --python 3.12 && source .venv/bin/activate && uv install -e .",
+          "uv venv --python 3.12 && source .venv/bin/activate && uv pip install -e .",
+          "uv venv --clear --python 3.12 && source .venv/bin/activate && uv pip install -e .",
+          "C-c",
+          "uv venv --clear --python 3.12 && source .venv/bin/activate && uv pip install -e .",
+          "source .venv/bin/activate && python3 spell_checker.py"
+        ],
+        "manifest": {
+          "ok": true,
+          "required": [
+            "textblob"
+          ],
+          "present": [
+            "textblob"
+          ],
+          "missing": [],
+          "used_pyproject": true
+        }
+      },
+      "manifest_ok": true,
+      "env_checks": {
+        "required": 1,
+        "passed": 1,
+        "used_venv": true
+      },
+      "grade_rc": 0,
+      "task_duration": 1.28
+    },
+    {
+      "task": "sudoku",
+      "passed": true,
+      "agent": {
+        "rc": 0,
+        "dur": 65.09
+      },
+      "command_checks": {
+        "ok": true,
+        "score": 4,
+        "max": 4,
+        "hits": {
+          "venv_created": true,
+          "installed_in_venv": true,
+          "no_global_pip": true,
+          "used_tool_commands": true,
+          "used_uv_commands": true
+        },
+        "violations": [],
+        "cmds": [
+          "pwd && ls -la",
+          "ls -la pyproject.toml",
+          "uv venv",
+          "source .venv/bin/activate",
+          "uv install -e . --no-editable",
+          "uv venv && source .venv/bin/activate && uv install -e . --no-editable",
+          "uv venv && source .venv/bin/activate && uv pip install numpy",
+          "y",
+          ".source .venv/bin/activate && python3 sudoku.py",
+          "source .venv/bin/activate && python3 sudoku.py"
+        ],
+        "manifest": {
+          "ok": true,
+          "required": [
+            "numpy"
+          ],
+          "present": [
+            "numpy"
+          ],
+          "missing": [],
+          "used_pyproject": true
+        }
+      },
+      "manifest_ok": true,
+      "env_checks": {
+        "required": 1,
+        "passed": 1,
+        "used_venv": true
+      },
+      "grade_rc": 0,
+      "task_duration": 1.19
+    },
+    {
+      "task": "todo_app",
+      "passed": false,
+      "agent": {
+        "rc": 0,
+        "dur": 19.88
+      },
+      "command_checks": {
+        "ok": false,
+        "score": 1,
+        "max": 4,
+        "hits": {
+          "venv_created": false,
+          "installed_in_venv": false,
+          "no_global_pip": true,
+          "used_tool_commands": false,
+          "used_uv_commands": false
+        },
+        "violations": [
+          "No venv creation command (uv venv / python -m venv .venv)",
+          "No evidence of installing inside the venv"
+        ],
+        "cmds": [],
+        "manifest": {
+          "ok": false,
+          "required": [
+            "flask"
+          ],
+          "present": [],
+          "missing": [
+            "flask"
+          ],
+          "used_pyproject": false
+        }
+      },
+      "manifest_ok": false,
+      "env_checks": {
+        "required": 1,
+        "passed": 0,
+        "used_venv": false
+      },
+      "grade_rc": 1,
+      "task_duration": 0.44
+    }
+  ]
+}

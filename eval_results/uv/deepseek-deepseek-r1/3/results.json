@@ -1,0 +1,804 @@
+{
+  "duration": 44.37,
+  "score": 1,
+  "total": 13,
+  "passed_tasks": [
+    "todo_app"
+  ],
+  "failed_tasks": [
+    "audiobook",
+    "convert_xlsx_to_csv",
+    "earth",
+    "fastapi_crud",
+    "get_link",
+    "image_resizing",
+    "logistic_regression",
+    "make_art",
+    "markdown_to_html",
+    "olympic_data_analysis",
+    "spell_checker",
+    "sudoku"
+  ],
+  "results": [
+    {
+      "task": "audiobook",
+      "passed": false,
+      "agent": {
+        "rc": 0,
+        "dur": 187.44
+      },
+      "command_checks": {
+        "ok": true,
+        "score": 4,
+        "max": 4,
+        "hits": {
+          "venv_created": true,
+          "installed_in_venv": true,
+          "no_global_pip": true,
+          "used_tool_commands": true,
+          "used_uv_commands": true
+        },
+        "violations": [],
+        "cmds": [
+          "uv venv .venv && . .venv/bin/activate && uv pip install -r requirements.txt",
+          "uv venv .venv && . .venv/bin/activate && uv pip install .",
+          "UV_VENV_CLEAR=1 uv venv .venv --clear && . .venv/bin/activate && uv pip install .",
+          "C-c",
+          "UV_VENV_CLEAR=1 uv venv .venv --clear && . .venv/bin/activate && uv pip install ."
+        ],
+        "manifest": {
+          "ok": false,
+          "required": [
+            "gtts",
+            "PyPDF2"
+          ],
+          "present": [],
+          "missing": [
+            "gtts",
+            "PyPDF2"
+          ],
+          "used_pyproject": true
+        }
+      },
+      "manifest_ok": false,
+      "env_checks": {
+        "required": 2,
+        "passed": 0,
+        "used_venv": true
+      },
+      "grade_rc": 1,
+      "task_duration": 3.23
+    },
+    {
+      "task": "convert_xlsx_to_csv",
+      "passed": false,
+      "agent": {
+        "rc": 0,
+        "dur": 382.4
+      },
+      "command_checks": {
+        "ok": true,
+        "score": 4,
+        "max": 4,
+        "hits": {
+          "venv_created": true,
+          "installed_in_venv": true,
+          "no_global_pip": true,
+          "used_tool_commands": true,
+          "used_uv_commands": true
+        },
+        "violations": [],
+        "cmds": [
+          "uv --version || pipx install uv && uv venv .venv && uv pip install -e . && [ -f .venv/bin/python ]",
+          "uv venv .venv && uv pip install -e . && [ -f .venv/bin/python ]",
+          "uv venv .venv --force && uv pip install -e . && [ -f .venv/bin/python ]",
+          "C-c",
+          "uv venv .venv --force && uv pip install -e . && [ -f .venv/bin/python ]",
+          "uv venv .venv --clear && uv pip install -e . --strict && [ -f .venv/bin/python ]",
+          "uv venv .venv --clear && uv pip install -e . && [ -f .venv/bin/python ]"
+        ],
+        "manifest": {
+          "ok": false,
+          "required": [
+            "pandas"
+          ],
+          "present": [],
+          "missing": [
+            "pandas"
+          ],
+          "used_pyproject": true
+        }
+      },
+      "manifest_ok": false,
+      "env_checks": {
+        "required": 1,
+        "passed": 0,
+        "used_venv": true
+      },
+      "grade_rc": 1,
+      "task_duration": 6.48
+    },
+    {
+      "task": "earth",
+      "passed": false,
+      "agent": {
+        "rc": 0,
+        "dur": 212.07
+      },
+      "command_checks": {
+        "ok": false,
+        "score": 3,
+        "max": 4,
+        "hits": {
+          "venv_created": true,
+          "installed_in_venv": true,
+          "no_global_pip": false,
+          "used_tool_commands": true,
+          "used_uv_commands": true
+        },
+        "violations": [
+          "Detected global pip usage (pip install/--user/sudo pip)",
+          "Installed deps before venv creation (order)"
+        ],
+        "cmds": [
+          "python3 -m pip install uv &&",
+          "uv venv .venv &&",
+          "echo -e '[tool.uv]\\nsources = [\"pyproject.toml\"]\\n\\n[project]\\nname = \"project\"\\nversion = \"0.1.0\"\\ndependencies = []\\n' > pyproject.toml &&",
+          ".venv/bin/python -m uv pip install -e .",
+          "python3 -m pip install --user uv &&",
+          "uv venv .venv &&",
+          "echo -e '[project]\\nname = \"project\"\\nversion = \"0.1.0\"\\ndependencies = [\"flask\"]\\n' > pyproject.toml &&",
+          "uv pip install --python .venv/bin/python -e .",
+          "python3 -m pip install uv &&",
+          "uv venv .venv &&",
+          "echo -e '[project]\\nname = \"project\"\\nversion = \"0.1.0\"\\ndependencies = [\"flask\"]\\n' > pyproject.toml &&",
+          "uv pip install --python .venv/bin/python -e .",
+          "uv venv --clear .venv &&",
+          "echo -e '[project]\\nname = \"project\"\\nversion = \"0.1.0\"\\ndependencies = [\"flask\"]\\n' > pyproject.toml &&",
+          "uv pip install --python .venv/bin/python -e .",
+          "C-c",
+          "uv venv --clear .venv &amp;&amp;",
+          "echo -e '[project]\\nname = \"project\"\\nversion = \"0.1.0\"\\ndependencies = [\"flask\"]\\n' > pyproject.toml &amp;&amp;",
+          ".venv/bin/python -m uv pip install -e .",
+          "uv venv --clear .venv &&",
+          "echo -e '[project]\\nname = \"project\"\\nversion = \"0.1.0\"\\ndependencies = [\"flask\"]\\n' > pyproject.toml &&",
+          ".venv/bin/python -m uv pip install -e .",
+          "rm -rf .venv pyproject.toml &&",
+          "uv venv .venv &&",
+          "echo -e '[project]\\nname = \"project\"\\nversion = \"0.1.0\"\\ndependencies = [\"flask\"]\\n' > pyproject.toml &&",
+          ".venv/bin/python -m pip install uv &&",
+          ".venv/bin/python -m uv pip install -e .",
+          "rm -rf .venv pyproject.toml &&",
+          "uv venv .venv --python 3.12 &&",
+          "echo -e '[project]\\nname = \"project\"\\nversion = \"0.1.0\"\\ndependencies = [\"flask\"]\\n' > pyproject.toml &&",
+          "uv pip install --python .venv/bin/python -e ."
+        ],
+        "manifest": {
+          "ok": false,
+          "required": [
+            "attrs"
+          ],
+          "present": [],
+          "missing": [
+            "attrs"
+          ],
+          "used_pyproject": true
+        }
+      },
+      "manifest_ok": false,
+      "env_checks": {
+        "required": 1,
+        "passed": 0,
+        "used_venv": true
+      },
+      "grade_rc": 1,
+      "task_duration": 3.63
+    },
+    {
+      "task": "fastapi_crud",
+      "passed": false,
+      "agent": {
+        "rc": 0,
+        "dur": 149.94
+      },
+      "command_checks": {
+        "ok": false,
+        "score": 1,
+        "max": 4,
+        "hits": {
+          "venv_created": false,
+          "installed_in_venv": false,
+          "no_global_pip": true,
+          "used_tool_commands": false,
+          "used_uv_commands": false
+        },
+        "violations": [
+          "No venv creation command (uv venv / python -m venv .venv)",
+          "No evidence of installing inside the venv"
+        ],
+        "cmds": [],
+        "manifest": {
+          "ok": false,
+          "required": [
+            "fastapi",
+            "pydantic",
+            "uvicorn",
+            "sqlalchemy"
+          ],
+          "present": [],
+          "missing": [
+            "fastapi",
+            "pydantic",
+            "uvicorn",
+            "sqlalchemy"
+          ],
+          "used_pyproject": false
+        }
+      },
+      "manifest_ok": false,
+      "env_checks": {
+        "required": 4,
+        "passed": 0,
+        "used_venv": false
+      },
+      "grade_rc": 1,
+      "task_duration": 2.63
+    },
+    {
+      "task": "get_link",
+      "passed": false,
+      "agent": {
+        "rc": 0,
+        "dur": 127.01
+      },
+      "command_checks": {
+        "ok": true,
+        "score": 4,
+        "max": 4,
+        "hits": {
+          "venv_created": true,
+          "installed_in_venv": true,
+          "no_global_pip": true,
+          "used_tool_commands": true,
+          "used_uv_commands": true
+        },
+        "violations": [],
+        "cmds": [
+          "python3 -m uv venv .venv && . .venv/bin/activate && uv pip install uv && uv pip install -r requirements.txt",
+          "pip install uv && uv venv .venv && . .venv/bin/activate && uv pip install uv && { [ -f pyproject.toml ] || uv pip install -r requirements.txt; }",
+          ". .venv/bin/activate && uv pip install ."
+        ],
+        "manifest": {
+          "ok": false,
+          "required": [
+            "requests",
+            "beautifulsoup4"
+          ],
+          "present": [],
+          "missing": [
+            "requests",
+            "beautifulsoup4"
+          ],
+          "used_pyproject": true
+        }
+      },
+      "manifest_ok": false,
+      "env_checks": {
+        "required": 2,
+        "passed": 0,
+        "used_venv": true
+      },
+      "grade_rc": 1,
+      "task_duration": 2.22
+    },
+    {
+      "task": "image_resizing",
+      "passed": false,
+      "agent": {
+        "rc": 0,
+        "dur": 187.07
+      },
+      "command_checks": {
+        "ok": false,
+        "score": 1,
+        "max": 4,
+        "hits": {
+          "venv_created": false,
+          "installed_in_venv": false,
+          "no_global_pip": true,
+          "used_tool_commands": false,
+          "used_uv_commands": false
+        },
+        "violations": [
+          "No venv creation command (uv venv / python -m venv .venv)",
+          "No evidence of installing inside the venv"
+        ],
+        "cmds": [],
+        "manifest": {
+          "ok": false,
+          "required": [
+            "Pillow"
+          ],
+          "present": [],
+          "missing": [
+            "Pillow"
+          ],
+          "used_pyproject": false
+        }
+      },
+      "manifest_ok": false,
+      "env_checks": {
+        "required": 1,
+        "passed": 0,
+        "used_venv": false
+      },
+      "grade_rc": 1,
+      "task_duration": 3.22
+    },
+    {
+      "task": "logistic_regression",
+      "passed": false,
+      "agent": {
+        "rc": 0,
+        "dur": 399.63
+      },
+      "command_checks": {
+        "ok": false,
+        "score": 3,
+        "max": 4,
+        "hits": {
+          "venv_created": true,
+          "installed_in_venv": true,
+          "no_global_pip": false,
+          "used_tool_commands": true,
+          "used_uv_commands": true
+        },
+        "violations": [
+          "Detected global pip usage (pip install/--user/sudo pip)",
+          "Installed deps before venv creation (order)"
+        ],
+        "cmds": [
+          "python3 -m pip install --user uv &&",
+          "uv venv .venv &&",
+          "echo -e '[build-system]\\nrequires = [\"uv\"]\\nbuild-backend = \"uv\"\\n\\n[project]\\nname = \"project\"\\nversion = \"0.1.0\"\\ndependencies = []' > pyproject.toml",
+          "uv venv .venv &&",
+          "echo -e '[build-system]\\nrequires = [\"uv\"]\\nbuild-backend = \"uv\"\\n\\n[project]\\nname = \"project\"\\nversion = \"0.1.0\"\\ndependencies = [\"flask\"]' > pyproject.toml &&",
+          ".venv/bin/python -m uv pip install .",
+          "uv venv .venv &&",
+          ".venv/bin/python -m pip install uv &&",
+          "echo -e '[build-system]\\nrequires = [\"uv\"]\\nbuild-backend = \"uv\"\\n\\n[project]\\nname = \"project\"\\nversion = \"0.1.0\"\\ndependencies = [\"flask\"]' > pyproject.toml &&",
+          ".venv/bin/python -m uv pip install .",
+          "yes | uv venv .venv --force &&",
+          ".venv/bin/python -m pip install uv &&",
+          "echo -e '[build-system]\\nrequires = [\"uv\"]\\nbuild-backend = \"uv\"\\n\\n[project]\\nname = \"project\"\\nversion = \"0.1.0\"\\ndependencies = [\"flask\"]' > pyproject.toml &&",
+          ".venv/bin/python -m uv pip install .",
+          "uv venv .venv --force &&",
+          "echo -e '[build-system]\\nrequires = [\"uv\"]\\nbuild-backend = \"uv\"\\n\\n[project]\\nname = \"project\"\\nversion = \"0.1.0\"\\ndependencies = [\"flask\"]' > pyproject.toml &&",
+          "uv pip install --python .venv/bin/python .",
+          "rm -rf .venv &&",
+          "uv venv .venv --force &&",
+          "echo -e '[build-system]\\nrequires = [\"uv\"]\\nbuild-backend = \"uv\"\\n\\n[project]\\nname = \"project\"\\nversion = \"0.1.0\"\\ndependencies = [\"flask\"]' > pyproject.toml &&",
+          "uv pip install --python .venv/bin/python .",
+          "rm -rf .venv pyproject.toml &&",
+          "uv venv .venv --force &&",
+          ".venv/bin/python -m pip install uv &&",
+          "echo -e '[project]\\nname = \"project\"\\nversion = \"0.1.0\"\\ndependencies = [\"flask\"]' > pyproject.toml &&",
+          ".venv/bin/python -m uv pip install -r <(echo \"flask\")",
+          "rm -rf .venv pyproject.toml &&",
+          "uv venv .venv --force &&",
+          ".venv/bin/python -m pip install uv &&",
+          "echo -e '[project]\\nname = \"project\"\\nversion = \"0.1.0\"\\ndependencies = [\"flask\"]' > pyproject.toml &&",
+          ".venv/bin/python -m uv pip install .",
+          "rm -rf .venv pyproject.toml",
+          "rm -rf .venv pyproject.toml &&",
+          "uv venv .venv --force &&",
+          ".venv/bin/pip install uv &&",
+          "echo -e '[project]\\nname = \"project\"\\nversion = \"0.1.0\"\\ndependencies = [\"flask\"]' > pyproject.toml &&",
+          ".venv/bin/uv pip install .",
+          "rm -rf .venv pyproject.toml &&",
+          "uv venv .venv --force &&",
+          ".venv/bin/uv pip install flask",
+          "C-c",
+          "rm -rf .venv pyproject.toml &&",
+          "uv venv .venv --force &&",
+          ".venv/bin/pip install uv &&",
+          "echo -e '[project]\\nname = \"project\"\\nversion = \"0.1.0\"\\ndependencies = [\"flask\"]' > pyproject.toml &&",
+          ".venv/bin/uv pip install -r <(echo \"flask\")",
+          "rm -rf .venv pyproject.toml &&",
+          "uv venv .venv &&",
+          "echo -e '[project]\\nname = \"project\"\\nversion = \"0.1.0\"\\ndependencies = [\"flask\"]' > pyproject.toml &&",
+          ".venv/bin/python -m uv pip install -r pyproject.toml",
+          "rm -rf .venv pyproject.toml &&",
+          "uv venv .venv &&",
+          "uv pip install --python .venv/bin/python flask &&",
+          "echo -e '[project]\\nname = \"project\"\\nversion = \"0.1.0\"\\ndependencies = [\"flask\"]' > pyproject.toml"
+        ],
+        "manifest": {
+          "ok": false,
+          "required": [
+            "pandas",
+            "numpy",
+            "matplotlib",
+            "seaborn",
+            "scikit-learn"
+          ],
+          "present": [],
+          "missing": [
+            "pandas",
+            "numpy",
+            "matplotlib",
+            "seaborn",
+            "scikit-learn"
+          ],
+          "used_pyproject": true
+        }
+      },
+      "manifest_ok": false,
+      "env_checks": {
+        "required": 5,
+        "passed": 0,
+        "used_venv": true
+      },
+      "grade_rc": 1,
+      "task_duration": 6.81
+    },
+    {
+      "task": "make_art",
+      "passed": false,
+      "agent": {
+        "rc": 0,
+        "dur": 137.08
+      },
+      "command_checks": {
+        "ok": true,
+        "score": 4,
+        "max": 4,
+        "hits": {
+          "venv_created": true,
+          "installed_in_venv": true,
+          "no_global_pip": true,
+          "used_tool_commands": true,
+          "used_uv_commands": true
+        },
+        "violations": [],
+        "cmds": [
+          "python3 -m pip install --user uv && uv venv .venv && . .venv/bin/activate && uv pip install -r pyproject.toml && uv pip freeze",
+          "python3 -m venv .venv && . .venv/bin/activate && pip install uv && uv pip install .",
+          "python3 -m venv .venv && . .venv/bin/activate && pip install uv && uv pip install -e ."
+        ],
+        "manifest": {
+          "ok": false,
+          "required": [
+            "numpy",
+            "opencv-python"
+          ],
+          "present": [],
+          "missing": [
+            "numpy",
+            "opencv-python"
+          ],
+          "used_pyproject": true
+        }
+      },
+      "manifest_ok": false,
+      "env_checks": {
+        "required": 2,
+        "passed": 0,
+        "used_venv": true
+      },
+      "grade_rc": 1,
+      "task_duration": 2.4
+    },
+    {
+      "task": "markdown_to_html",
+      "passed": false,
+      "agent": {
+        "rc": 0,
+        "dur": 92.82
+      },
+      "command_checks": {
+        "ok": false,
+        "score": 1,
+        "max": 4,
+        "hits": {
+          "venv_created": false,
+          "installed_in_venv": false,
+          "no_global_pip": true,
+          "used_tool_commands": false,
+          "used_uv_commands": false
+        },
+        "violations": [
+          "No venv creation command (uv venv / python -m venv .venv)",
+          "No evidence of installing inside the venv"
+        ],
+        "cmds": [],
+        "manifest": {
+          "ok": false,
+          "required": [
+            "markdown"
+          ],
+          "present": [],
+          "missing": [
+            "markdown"
+          ],
+          "used_pyproject": false
+        }
+      },
+      "manifest_ok": false,
+      "env_checks": {
+        "required": 1,
+        "passed": 0,
+        "used_venv": false
+      },
+      "grade_rc": 1,
+      "task_duration": 1.64
+    },
+    {
+      "task": "olympic_data_analysis",
+      "passed": false,
+      "agent": {
+        "rc": 0,
+        "dur": 178.08
+      },
+      "command_checks": {
+        "ok": true,
+        "score": 4,
+        "max": 4,
+        "hits": {
+          "venv_created": true,
+          "installed_in_venv": true,
+          "no_global_pip": true,
+          "used_tool_commands": true,
+          "used_uv_commands": true
+        },
+        "violations": [],
+        "cmds": [
+          "test -f pyproject.toml || (echo -e \"[build-system]\\nrequires = [\\\"uv>=0.1.0\\\"]\\nbuild-backend = \\\"hatchling.build\\\"\\n\\n[project]\\nname = \\\"project\\\"\\nversion = \\\"0.1.0\\\"\\ndependencies = []\" > pyproject.toml) && uv venv .venv && source .venv/bin/activate && uv pip install -e .",
+          "uv pip install hatchling && uv venv .venv && source .venv/bin/activate && uv pip install -e .",
+          "rm -rf .venv && uv venv .venv --clear && source .venv/bin/activate && uv pip install -e .",
+          "y",
+          "rm -rf .venv && uv venv .venv --clear && source .venv/bin/activate && uv pip install -e .",
+          "ls -a .venv && .venv/bin/python --version && uv pip list"
+        ],
+        "manifest": {
+          "ok": false,
+          "required": [
+            "pandas",
+            "numpy",
+            "streamlit",
+            "plotly",
+            "seaborn",
+            "matplotlib"
+          ],
+          "present": [],
+          "missing": [
+            "pandas",
+            "numpy",
+            "streamlit",
+            "plotly",
+            "seaborn",
+            "matplotlib"
+          ],
+          "used_pyproject": true
+        }
+      },
+      "manifest_ok": false,
+      "env_checks": {
+        "required": 6,
+        "passed": 0,
+        "used_venv": true
+      },
+      "grade_rc": 1,
+      "task_duration": 3.13
+    },
+    {
+      "task": "spell_checker",
+      "passed": false,
+      "agent": {
+        "rc": 0,
+        "dur": 198.17
+      },
+      "command_checks": {
+        "ok": false,
+        "score": 3,
+        "max": 4,
+        "hits": {
+          "venv_created": true,
+          "installed_in_venv": true,
+          "no_global_pip": false,
+          "used_tool_commands": true,
+          "used_uv_commands": true
+        },
+        "violations": [
+          "Detected global pip usage (pip install/--user/sudo pip)"
+        ],
+        "cmds": [
+          "python3 -m pipx ensurepath && pipx install uv &&",
+          "uv venv .venv &&",
+          "echo '[project]",
+          "name = \"project\"",
+          "version = \"0.1.0\"",
+          "dependencies = [",
+          "\"pytest\"",
+          "]' > pyproject.toml &&",
+          ".venv/bin/python -m uv pip install -e .",
+          "python3 -m pip install --user uv &&",
+          "uv venv .venv &&",
+          "echo '[project]",
+          "name = \"project\"",
+          "version = \"0.1.0\"",
+          "dependencies = [",
+          "\"pytest\"",
+          "]' > pyproject.toml &&",
+          ".venv/bin/python -m uv pip install -e .",
+          "python3 -m pip install uv &&",
+          "uv venv .venv &&",
+          "echo '[project]",
+          "name = \"project\"",
+          "version = \"0.1.0\"",
+          "dependencies = []' > pyproject.toml &&",
+          ".venv/bin/python -m uv pip install -e .",
+          "python3 -m pip install uv &&",
+          "uv venv .venv &&",
+          ".venv/bin/python -m pip install uv &&",
+          "echo '[project]",
+          "name = \"project\"",
+          "version = \"0.1.0\"",
+          "dependencies = [\"pytest\"]' > pyproject.toml &&",
+          ".venv/bin/python -m uv pip install -e .",
+          "rm -rf .venv &&",
+          "uv venv .venv --clear &&",
+          ".venv/bin/python -m pip install uv &&",
+          "echo '[project]",
+          "name = \"project\"",
+          "version = \"0.1.0\"",
+          "dependencies = [\"pytest\"]' > pyproject.toml &&",
+          ".venv/bin/python -m uv pip install -e . --yes",
+          "C-c",
+          "rm -rf .venv &&",
+          "uv venv .venv --clear &&",
+          ".venv/bin/python -m pip install uv &&",
+          "echo '[project]",
+          "name = \"project\"",
+          "version = \"0.1.0\"",
+          "dependencies = [\"pytest\"]' > pyproject.toml &&",
+          ".venv/bin/python -m uv pip install -e . --yes",
+          "rm -rf .venv &&",
+          "uv venv .venv --clear &&",
+          "curl -sS https://bootstrap.pypa.io/get-pip.py -o get-pip.py &&",
+          ".venv/bin/python get-pip.py &&",
+          ".venv/bin/python -m pip install uv &&",
+          "echo '[project]",
+          "name = \"project\"",
+          "version = \"0.1.0\"",
+          "dependencies = [\"pytest\"]' > pyproject.toml &&",
+          ".venv/bin/python -m uv pip install -e . --yes",
+          "rm -rf .venv &&",
+          "uv venv .venv --clear &&",
+          "curl -sS https://bootstrap.pypa.io/get-pip.py -o get-pip.py &&",
+          ".venv/bin/python get-pip.py &&",
+          ".venv/bin/python -m pip install uv &&",
+          "echo '[project]",
+          "name = \"project\"",
+          "version = \"0.1.0\"",
+          "dependencies = [\"pytest\"]' > pyproject.toml &&",
+          ".venv/bin/python -m uv pip install -e ."
+        ],
+        "manifest": {
+          "ok": false,
+          "required": [
+            "textblob"
+          ],
+          "present": [],
+          "missing": [
+            "textblob"
+          ],
+          "used_pyproject": true
+        }
+      },
+      "manifest_ok": false,
+      "env_checks": {
+        "required": 1,
+        "passed": 0,
+        "used_venv": true
+      },
+      "grade_rc": 1,
+      "task_duration": 3.4
+    },
+    {
+      "task": "sudoku",
+      "passed": false,
+      "agent": {
+        "rc": 0,
+        "dur": 237.56
+      },
+      "command_checks": {
+        "ok": true,
+        "score": 4,
+        "max": 4,
+        "hits": {
+          "venv_created": true,
+          "installed_in_venv": true,
+          "no_global_pip": true,
+          "used_tool_commands": true,
+          "used_uv_commands": true
+        },
+        "violations": [],
+        "cmds": [
+          "uv venv .venv && .venv/bin/uv pip install .",
+          "pip install uv && uv venv .venv && .venv/bin/uv pip install .",
+          "uv venv --clear .venv && .venv/bin/uv pip install .",
+          "y",
+          "uv venv --clear .venv && uv pip install --python .venv/bin/python .",
+          "uv venv --clear .venv && .venv/bin/uv pip install .",
+          "uv venv --clear .venv && uv pip install --python .venv/bin/python ."
+        ],
+        "manifest": {
+          "ok": false,
+          "required": [
+            "numpy"
+          ],
+          "present": [],
+          "missing": [
+            "numpy"
+          ],
+          "used_pyproject": true
+        }
+      },
+      "manifest_ok": false,
+      "env_checks": {
+        "required": 1,
+        "passed": 0,
+        "used_venv": true
+      },
+      "grade_rc": 1,
+      "task_duration": 4.06
+    },
+    {
+      "task": "todo_app",
+      "passed": true,
+      "agent": {
+        "rc": 0,
+        "dur": 85.33
+      },
+      "command_checks": {
+        "ok": true,
+        "score": 4,
+        "max": 4,
+        "hits": {
+          "venv_created": true,
+          "installed_in_venv": true,
+          "no_global_pip": true,
+          "used_tool_commands": true,
+          "used_uv_commands": true
+        },
+        "violations": [],
+        "cmds": [
+          "uv venv .venv &&",
+          "uv pip install -r requirements.txt --python .venv/bin/python &&",
+          "echo \"Virtual environment created and dependencies installed in .venv\"",
+          "uv pip install --python .venv/bin/python ."
+        ],
+        "manifest": {
+          "ok": true,
+          "required": [
+            "flask"
+          ],
+          "present": [
+            "flask"
+          ],
+          "missing": [],
+          "used_pyproject": true
+        }
+      },
+      "manifest_ok": true,
+      "env_checks": {
+        "required": 1,
+        "passed": 1,
+        "used_venv": true
+      },
+      "grade_rc": 0,
+      "task_duration": 1.54
+    }
+  ]
+}

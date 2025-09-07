@@ -1,0 +1,736 @@
+{
+  "duration": 26.36,
+  "score": 11,
+  "total": 13,
+  "passed_tasks": [
+    "audiobook",
+    "convert_xlsx_to_csv",
+    "earth",
+    "fastapi_crud",
+    "get_link",
+    "image_resizing",
+    "markdown_to_html",
+    "olympic_data_analysis",
+    "spell_checker",
+    "sudoku",
+    "todo_app"
+  ],
+  "failed_tasks": [
+    "logistic_regression",
+    "make_art"
+  ],
+  "results": [
+    {
+      "task": "audiobook",
+      "passed": true,
+      "agent": {
+        "rc": 0,
+        "dur": 154.91
+      },
+      "command_checks": {
+        "ok": true,
+        "score": 4,
+        "max": 4,
+        "hits": {
+          "venv_created": true,
+          "installed_in_venv": true,
+          "no_global_pip": true,
+          "used_tool_commands": true,
+          "used_pip_commands": true
+        },
+        "violations": [],
+        "cmds": [
+          "pwd && ls -la",
+          "ls -la | grep -E \"venv|\\.venv|env\"",
+          "python3 -m venv .venv",
+          "source .venv/bin/activate && pip install gtts PyPDF2",
+          "source .venv/bin/activate && python audiobook.py",
+          "ls -la audiobook.mp3",
+          "source .venv/bin/activate && pip freeze",
+          "python3 -m venv .test_venv && source .test_venv/bin/activate && pip install -r requirements.txt && python audiobook.py && deactivate && rm -rf .test_venv",
+          "ls -la .venv/bin/python && .venv/bin/python --version",
+          ".venv/bin/python audiobook.py"
+        ],
+        "manifest": {
+          "ok": true,
+          "which": "requirements.txt",
+          "required": [
+            "gtts",
+            "PyPDF2"
+          ],
+          "present": [
+            "gtts",
+            "PyPDF2"
+          ],
+          "missing": []
+        }
+      },
+      "manifest_ok": true,
+      "env_checks": {
+        "required": 2,
+        "passed": 2,
+        "used_venv": true
+      },
+      "grade_rc": 0,
+      "task_duration": 2.99
+    },
+    {
+      "task": "convert_xlsx_to_csv",
+      "passed": true,
+      "agent": {
+        "rc": 0,
+        "dur": 111.88
+      },
+      "command_checks": {
+        "ok": true,
+        "score": 4,
+        "max": 4,
+        "hits": {
+          "venv_created": true,
+          "installed_in_venv": true,
+          "no_global_pip": true,
+          "used_tool_commands": true,
+          "used_pip_commands": true
+        },
+        "violations": [],
+        "cmds": [
+          "pwd && ls -la",
+          "find . -type f -name \"*.py\" | head -20",
+          "find . -type f \\( -name \"*.txt\" -o -name \"*.cfg\" -o -name \"*.ini\" -o -name \"pyproject.toml\" -o -name \"setup.py\" -o -name \"setup.cfg\" \\) 2>/dev/null | grep -v \".git\"",
+          "ls -la data/",
+          "ls -la data/input/",
+          "python3 -m venv .venv",
+          "source .venv/bin/activate && pip install pandas openpyxl",
+          "cp data/lore_waitlist.xlsx data/input/",
+          "source .venv/bin/activate && python convert-xlsx-to-csv.py",
+          "ls -la data/output/",
+          ".venv/bin/python convert-xlsx-to-csv.py",
+          "cat requirements.txt"
+        ],
+        "manifest": {
+          "ok": true,
+          "which": "requirements.txt",
+          "required": [
+            "pandas"
+          ],
+          "present": [
+            "pandas"
+          ],
+          "missing": []
+        }
+      },
+      "manifest_ok": true,
+      "env_checks": {
+        "required": 1,
+        "passed": 1,
+        "used_venv": true
+      },
+      "grade_rc": 0,
+      "task_duration": 2.0
+    },
+    {
+      "task": "earth",
+      "passed": true,
+      "agent": {
+        "rc": 0,
+        "dur": 143.02
+      },
+      "command_checks": {
+        "ok": true,
+        "score": 4,
+        "max": 4,
+        "hits": {
+          "venv_created": true,
+          "installed_in_venv": true,
+          "no_global_pip": true,
+          "used_tool_commands": true,
+          "used_pip_commands": true
+        },
+        "violations": [],
+        "cmds": [
+          "pwd && ls -la",
+          "find . -name \"*.py\" -type f | head -20",
+          "find ./earth -name \"*.py\" -type f | head -10",
+          "grep -h \"^import\\|^from\" ./earth/*.py | sort -u",
+          "grep -h \"^import\\|^from\" ./tests/*.py ./tests/*/*.py 2>/dev/null | grep -v \"^from earth\\|^from \\.\" | sort -u",
+          "head -5 ./tests/earth/test_earth_01.py",
+          "python3 -m venv .venv",
+          "source .venv/bin/activate && pip install attrs pytest",
+          "source .venv/bin/activate && python example1.py",
+          "source .venv/bin/activate && pytest tests/ -v",
+          "source .venv/bin/activate && python -m pytest tests/ --tb=short",
+          "source .venv/bin/activate && pip freeze | grep -E \"^(attrs|pytest)\" > requirements_freeze.txt && cat requirements_freeze.txt",
+          ".venv/bin/python example1.py",
+          ".venv/bin/python -m pytest tests/ -q",
+          "ls -la | grep -E \"^-|^d.*\\.venv|requirements\"",
+          "rm requirements_freeze.txt"
+        ],
+        "manifest": {
+          "ok": true,
+          "which": "requirements.txt",
+          "required": [
+            "attrs"
+          ],
+          "present": [
+            "attrs"
+          ],
+          "missing": []
+        }
+      },
+      "manifest_ok": true,
+      "env_checks": {
+        "required": 1,
+        "passed": 1,
+        "used_venv": true
+      },
+      "grade_rc": 0,
+      "task_duration": 2.67
+    },
+    {
+      "task": "fastapi_crud",
+      "passed": true,
+      "agent": {
+        "rc": 0,
+        "dur": 116.77
+      },
+      "command_checks": {
+        "ok": true,
+        "score": 4,
+        "max": 4,
+        "hits": {
+          "venv_created": true,
+          "installed_in_venv": true,
+          "no_global_pip": true,
+          "used_tool_commands": true,
+          "used_pip_commands": true
+        },
+        "violations": [],
+        "cmds": [
+          "pwd && ls -la",
+          "find /workspace -name \"*.py\" -type f | head -20 | xargs grep -h \"^from\\|^import\" | sort -u",
+          "find /workspace -name \"test*.py\" -o -name \"*test.py\" | xargs ls -la 2>/dev/null",
+          "python3 -m venv .venv",
+          "source .venv/bin/activate && pip install --upgrade pip",
+          "source .venv/bin/activate && pip install fastapi sqlalchemy pydantic uvicorn httpx",
+          "source .venv/bin/activate && python grade.py",
+          "source .venv/bin/activate && python -c \"from main import app; print('FastAPI app imported successfully')\"",
+          "source .venv/bin/activate && timeout 3 uvicorn main:app --host 0.0.0.0 --port 52648 || true",
+          "source .venv/bin/activate && pip freeze > requirements_full.txt && cat requirements_full.txt",
+          "cat requirements.txt",
+          "source .venv/bin/activate && pip install -r requirements.txt",
+          "source .venv/bin/activate && python grade.py"
+        ],
+        "manifest": {
+          "ok": true,
+          "which": "requirements.txt",
+          "required": [
+            "fastapi",
+            "pydantic",
+            "uvicorn",
+            "sqlalchemy"
+          ],
+          "present": [
+            "fastapi",
+            "pydantic",
+            "uvicorn",
+            "sqlalchemy"
+          ],
+          "missing": []
+        }
+      },
+      "manifest_ok": true,
+      "env_checks": {
+        "required": 4,
+        "passed": 4,
+        "used_venv": true
+      },
+      "grade_rc": 0,
+      "task_duration": 2.12
+    },
+    {
+      "task": "get_link",
+      "passed": true,
+      "agent": {
+        "rc": 0,
+        "dur": 87.24
+      },
+      "command_checks": {
+        "ok": true,
+        "score": 4,
+        "max": 4,
+        "hits": {
+          "venv_created": true,
+          "installed_in_venv": true,
+          "no_global_pip": true,
+          "used_tool_commands": true,
+          "used_pip_commands": true
+        },
+        "violations": [],
+        "cmds": [
+          "pwd && ls -la",
+          "python3 -m venv .venv",
+          "source .venv/bin/activate && pip install requests beautifulsoup4",
+          "source .venv/bin/activate && pip freeze > requirements.txt",
+          "source .venv/bin/activate && python get_links.py",
+          "ls -la myLinks.txt && cat myLinks.txt",
+          ".venv/bin/python get_links.py && echo \"Script executed successfully with .venv/bin/python\"",
+          "rm -rf .venv && python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt",
+          "rm -f myLinks.txt && .venv/bin/python get_links.py && cat myLinks.txt"
+        ],
+        "manifest": {
+          "ok": true,
+          "which": "requirements.txt",
+          "required": [
+            "requests",
+            "beautifulsoup4"
+          ],
+          "present": [
+            "requests",
+            "beautifulsoup4"
+          ],
+          "missing": []
+        }
+      },
+      "manifest_ok": true,
+      "env_checks": {
+        "required": 2,
+        "passed": 2,
+        "used_venv": true
+      },
+      "grade_rc": 0,
+      "task_duration": 1.56
+    },
+    {
+      "task": "image_resizing",
+      "passed": true,
+      "agent": {
+        "rc": 0,
+        "dur": 87.02
+      },
+      "command_checks": {
+        "ok": true,
+        "score": 4,
+        "max": 4,
+        "hits": {
+          "venv_created": true,
+          "installed_in_venv": true,
+          "no_global_pip": true,
+          "used_tool_commands": true,
+          "used_pip_commands": true
+        },
+        "violations": [],
+        "cmds": [
+          "pwd && ls -la",
+          "ls -la images/",
+          "python3 -m venv .venv",
+          "source .venv/bin/activate && pip install Pillow",
+          "source .venv/bin/activate && mkdir -p input output && cp images/*.png input/",
+          "source .venv/bin/activate && .venv/bin/python resizer.py 800x600",
+          "source .venv/bin/activate && .venv/bin/python -c \"from PIL import Image; import os",
+          "for f in os.listdir('output'):",
+          "if f.endswith('.png'):",
+          "img = Image.open(os.path.join('output', f))",
+          "print(f'{f}: {img.size}')\"",
+          "source .venv/bin/activate && pip freeze",
+          "source .venv/bin/activate && pip uninstall -y Pillow && pip install -r requirements.txt",
+          ".venv/bin/python resizer.py 1920x1080",
+          "ls -la"
+        ],
+        "manifest": {
+          "ok": true,
+          "which": "requirements.txt",
+          "required": [
+            "Pillow"
+          ],
+          "present": [
+            "Pillow"
+          ],
+          "missing": []
+        }
+      },
+      "manifest_ok": true,
+      "env_checks": {
+        "required": 1,
+        "passed": 1,
+        "used_venv": true
+      },
+      "grade_rc": 0,
+      "task_duration": 1.54
+    },
+    {
+      "task": "logistic_regression",
+      "passed": false,
+      "agent": {
+        "rc": 0,
+        "dur": 151.15
+      },
+      "command_checks": {
+        "ok": true,
+        "score": 4,
+        "max": 4,
+        "hits": {
+          "venv_created": true,
+          "installed_in_venv": true,
+          "no_global_pip": true,
+          "used_tool_commands": true,
+          "used_pip_commands": true
+        },
+        "violations": [],
+        "cmds": [
+          "pwd && ls -la",
+          "python3 -m venv .venv",
+          "source .venv/bin/activate && pip install pandas matplotlib seaborn scikit-learn",
+          "source .venv/bin/activate && pip freeze > requirements.txt",
+          "source .venv/bin/activate && python grade.py",
+          ".venv/bin/python logistic_regression.py",
+          "rm -rf .venv && python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt",
+          ".venv/bin/python grade.py"
+        ],
+        "manifest": {
+          "ok": false,
+          "which": "requirements.txt",
+          "required": [
+            "pandas",
+            "numpy",
+            "matplotlib",
+            "seaborn",
+            "scikit-learn"
+          ],
+          "present": [
+            "pandas",
+            "matplotlib",
+            "seaborn",
+            "scikit-learn"
+          ],
+          "missing": [
+            "numpy"
+          ]
+        }
+      },
+      "manifest_ok": false,
+      "env_checks": {
+        "required": 5,
+        "passed": 5,
+        "used_venv": true
+      },
+      "grade_rc": 0,
+      "task_duration": 2.8
+    },
+    {
+      "task": "make_art",
+      "passed": false,
+      "agent": {
+        "rc": 0,
+        "dur": 98.56
+      },
+      "command_checks": {
+        "ok": false,
+        "score": 3,
+        "max": 4,
+        "hits": {
+          "venv_created": true,
+          "installed_in_venv": true,
+          "no_global_pip": true,
+          "used_tool_commands": false,
+          "used_pip_commands": false
+        },
+        "violations": [],
+        "cmds": [
+          "pwd && ls -la",
+          "ls -la | grep -E \"venv|.venv|env\" && python3 --version",
+          "python3 -m venv .venv && source .venv/bin/activate && python --version",
+          "pip install opencv-python numpy",
+          "pip freeze > requirements.txt && cat requirements.txt",
+          ".venv/bin/python make_art.py",
+          ".venv/bin/python make_art.py sample_image.png",
+          "ls -la | grep -E \"requirements|.venv\" && echo -e \"\\n--- Requirements.txt contents ---\" && cat requirements.txt"
+        ],
+        "manifest": {
+          "ok": true,
+          "which": "requirements.txt",
+          "required": [
+            "numpy",
+            "opencv-python"
+          ],
+          "present": [
+            "numpy",
+            "opencv-python"
+          ],
+          "missing": []
+        }
+      },
+      "manifest_ok": true,
+      "env_checks": {
+        "required": 2,
+        "passed": 2,
+        "used_venv": true
+      },
+      "grade_rc": 0,
+      "task_duration": 1.76
+    },
+    {
+      "task": "markdown_to_html",
+      "passed": true,
+      "agent": {
+        "rc": 0,
+        "dur": 72.06
+      },
+      "command_checks": {
+        "ok": true,
+        "score": 4,
+        "max": 4,
+        "hits": {
+          "venv_created": true,
+          "installed_in_venv": true,
+          "no_global_pip": true,
+          "used_tool_commands": true,
+          "used_pip_commands": true
+        },
+        "violations": [],
+        "cmds": [
+          "pwd && ls -la",
+          "ls -la | grep -E \"venv|\\.venv|env\"",
+          "python3 -m venv .venv",
+          "source .venv/bin/activate && pip install markdown",
+          "source .venv/bin/activate && python markdown_to_html.py input.md output.html",
+          "ls -la output.html && head -20 output.html",
+          "source .venv/bin/activate && pip freeze"
+        ],
+        "manifest": {
+          "ok": true,
+          "which": "requirements.txt",
+          "required": [
+            "markdown"
+          ],
+          "present": [
+            "markdown"
+          ],
+          "missing": []
+        }
+      },
+      "manifest_ok": true,
+      "env_checks": {
+        "required": 1,
+        "passed": 1,
+        "used_venv": true
+      },
+      "grade_rc": 0,
+      "task_duration": 1.3
+    },
+    {
+      "task": "olympic_data_analysis",
+      "passed": true,
+      "agent": {
+        "rc": 0,
+        "dur": 144.32
+      },
+      "command_checks": {
+        "ok": true,
+        "score": 4,
+        "max": 4,
+        "hits": {
+          "venv_created": true,
+          "installed_in_venv": true,
+          "no_global_pip": true,
+          "used_tool_commands": true,
+          "used_pip_commands": true
+        },
+        "violations": [],
+        "cmds": [
+          "pwd && ls -la",
+          "ls -la | grep -E \"venv|\\.venv|env\"",
+          "python3 -m venv .venv",
+          "source .venv/bin/activate && pip install --upgrade pip",
+          "source .venv/bin/activate && pip install pandas numpy streamlit plotly matplotlib seaborn",
+          "source .venv/bin/activate && python -c \"import pandas, numpy, streamlit, plotly, matplotlib, seaborn; print('All dependencies imported successfully!')\"",
+          "source .venv/bin/activate && python -c \"import pandas, numpy, streamlit, plotly, matplotlib, seaborn; print('All dependencies imported successfully')\"",
+          "source .venv/bin/activate && python -c \"import app; print('App module imported successfully')\"",
+          "source .venv/bin/activate && streamlit run app.py --server.port 50359 --server.address 0.0.0.0 --server.headless true > server.log 2>&1 &",
+          "sleep 3 && cat server.log",
+          "source .venv/bin/activate && python grade.py",
+          "kill 538"
+        ],
+        "manifest": {
+          "ok": true,
+          "which": "requirements.txt",
+          "required": [
+            "pandas",
+            "numpy",
+            "streamlit",
+            "plotly",
+            "seaborn",
+            "matplotlib"
+          ],
+          "present": [
+            "pandas",
+            "numpy",
+            "streamlit",
+            "plotly",
+            "seaborn",
+            "matplotlib"
+          ],
+          "missing": []
+        }
+      },
+      "manifest_ok": true,
+      "env_checks": {
+        "required": 6,
+        "passed": 6,
+        "used_venv": true
+      },
+      "grade_rc": 0,
+      "task_duration": 2.62
+    },
+    {
+      "task": "spell_checker",
+      "passed": true,
+      "agent": {
+        "rc": 0,
+        "dur": 72.2
+      },
+      "command_checks": {
+        "ok": true,
+        "score": 4,
+        "max": 4,
+        "hits": {
+          "venv_created": true,
+          "installed_in_venv": true,
+          "no_global_pip": true,
+          "used_tool_commands": true,
+          "used_pip_commands": true
+        },
+        "violations": [],
+        "cmds": [
+          "pwd && ls -la",
+          "ls -la | grep venv",
+          "python3 -m venv .venv",
+          "source .venv/bin/activate && pip install textblob",
+          "source .venv/bin/activate && python -m textblob.download_corpora",
+          "source .venv/bin/activate && python spell_checker.py",
+          ".venv/bin/python spell_checker.py"
+        ],
+        "manifest": {
+          "ok": true,
+          "which": "requirements.txt",
+          "required": [
+            "textblob"
+          ],
+          "present": [
+            "textblob"
+          ],
+          "missing": []
+        }
+      },
+      "manifest_ok": true,
+      "env_checks": {
+        "required": 1,
+        "passed": 1,
+        "used_venv": true
+      },
+      "grade_rc": 0,
+      "task_duration": 1.32
+    },
+    {
+      "task": "sudoku",
+      "passed": true,
+      "agent": {
+        "rc": 0,
+        "dur": 96.63
+      },
+      "command_checks": {
+        "ok": true,
+        "score": 4,
+        "max": 4,
+        "hits": {
+          "venv_created": true,
+          "installed_in_venv": true,
+          "no_global_pip": true,
+          "used_tool_commands": true,
+          "used_pip_commands": true
+        },
+        "violations": [],
+        "cmds": [
+          "pwd && ls -la",
+          "find /workspace -type f -name \"*.py\" -o -name \"*.txt\" -o -name \"*.cfg\" -o -name \"*.ini\" -o -name \"pyproject.toml\" -o -name \"setup.py\" | head -20",
+          "python3 -m venv .venv",
+          "source .venv/bin/activate && pip install numpy",
+          "source .venv/bin/activate && python sudoku.py",
+          "source .venv/bin/activate && pip freeze",
+          ".venv/bin/python sudoku.py | head -20",
+          "cat requirements.txt"
+        ],
+        "manifest": {
+          "ok": true,
+          "which": "requirements.txt",
+          "required": [
+            "numpy"
+          ],
+          "present": [
+            "numpy"
+          ],
+          "missing": []
+        }
+      },
+      "manifest_ok": true,
+      "env_checks": {
+        "required": 1,
+        "passed": 1,
+        "used_venv": true
+      },
+      "grade_rc": 0,
+      "task_duration": 1.72
+    },
+    {
+      "task": "todo_app",
+      "passed": true,
+      "agent": {
+        "rc": 0,
+        "dur": 111.15
+      },
+      "command_checks": {
+        "ok": true,
+        "score": 4,
+        "max": 4,
+        "hits": {
+          "venv_created": true,
+          "installed_in_venv": true,
+          "no_global_pip": true,
+          "used_tool_commands": true,
+          "used_pip_commands": true
+        },
+        "violations": [],
+        "cmds": [
+          "pwd && ls -la",
+          "ls -la | grep -E \"(venv|\\.venv|requirements|Pipfile|pyproject)\" && find . -maxdepth 2 -name \"*.txt\" -o -name \"*.toml\" -o -name \"Pipfile*\" | grep -v \".git\"",
+          "python3 -m venv .venv",
+          "source .venv/bin/activate && pip install flask",
+          "source .venv/bin/activate && pip freeze > requirements.txt",
+          "source .venv/bin/activate && python db_create.py",
+          "source .venv/bin/activate && python grade.py",
+          "source .venv/bin/activate && timeout 3 python app.py 2>&1 | head -20",
+          "ls -la .venv/bin/ | grep python",
+          "source .venv/bin/activate && pip list"
+        ],
+        "manifest": {
+          "ok": true,
+          "which": "requirements.txt",
+          "required": [
+            "flask"
+          ],
+          "present": [
+            "flask"
+          ],
+          "missing": []
+        }
+      },
+      "manifest_ok": true,
+      "env_checks": {
+        "required": 1,
+        "passed": 1,
+        "used_venv": true
+      },
+      "grade_rc": 0,
+      "task_duration": 1.95
+    }
+  ]
+}
